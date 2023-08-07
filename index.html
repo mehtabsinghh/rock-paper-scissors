@@ -4,63 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script>
-        function getComputerChoice() {
-            const plays = ["rock", "paper", "scissors"];
-            const randomIndex = Math.floor(Math.random() * plays.length);
-            const computerChoice = plays[randomIndex];
-            return computerChoice;
-
-        }
-        console.log(getComputerChoice())
-        
-        function playRound(playerSelection, computerSelection) {
-            if (playerSelection == computerSelection) {
-                return "It's a tie"
-            } else if (
-                (playerSelection == "rock" && computerSelection == "scissors") ||
-                (playerSelection == "paper" && computerSelection == "rock") ||
-                (playerSelection == "scissors" && computerSelection == "paper")
-            ) {
-                return "win";
-            } else {
-                return "lose";
-            } 
-
-        }
-
-        
-        
-        function game() {
-            const playerSelection = prompt("Rock, paper or scissors");
-            const computerSelection = getComputerChoice();
-            console.log(computerSelection)
-            let player = 0;
-            let comp = 0;
-            const result = playRound(playerSelection.toLowerCase(), computerSelection);
-            if (result == "win") {
-                player = player + 1
-            } else if (result == "lose") {
-                comp = comp + 1
-            } else {
-                player = player + 1
-                comp = comp + 1
-            }
-            if (player > comp) {
-                return "you win"
-            }  else if (player < comp) {
-                return "you lose"
-            } else {
-                return "tie"
-            }
-        }
-
-        console.log(game())
-
-    </script>
-
-
+    <div class="buttons">
+        <button id="rock">ROCK</button>
+        <button id="paper">PAPER</button>
+        <button id="scissors">SCISSORS</button>
+        <button id="clear">PLAY AGAIN</button>
+    </div>
+    <div class="result">
+        <p>Player Score: <span id="player-score">0</span></p>
+        <p>Computer Score: <span id="computer-score">0</span></p>
+        <p>Rounds Played: <span id="rounds-played">0</span></p>
+        <p id="game-result"></p>
+    </div>
 </body>
 </html>
